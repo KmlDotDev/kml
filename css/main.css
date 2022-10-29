@@ -1,0 +1,268 @@
+/* * Global Rules * */
+:root {
+  --bg-section: #f1f5f9;
+  --sec-clr: #eee;
+  --main-clr: #1b1c1e;
+  --alt-clr: #2d3b4d;
+  --accent-clr: #5380b5;
+  --main-transition: 0.3s;
+
+  /* li translate */
+  --tr-x: 12px;
+}
+body {
+  background-color: var(--main-clr);
+  font-family: "Outfit", sans-serif;
+  color: #fff;
+}
+
+.container {
+  width: 95%;
+  margin-inline: auto;
+}
+/* * Global Rules End * */
+
+/* * Controle Panel * */
+
+/* ! Mobile Viewport */
+.ctrl-panel {
+  background-color: var(--main-clr);
+  overflow: hidden;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.ctrl-panel.light-effect::before {
+  top: -225px;
+  left: -100px;
+}
+.ctrl-panel.light-effect::after {
+  bottom: -200px;
+  right: -100px;
+}
+.ctrl-panel .logo {
+  display: none;
+  width: max-content;
+  margin-top: 10px;
+}
+.ctrl-panel .ctrl-bar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.ctrl-panel .ctrl-bar .icon {
+  font-size: 1.35rem;
+}
+.ctrl-panel .ctrl-bar .icon:hover {
+  color: var(--accent-clr);
+}
+.ctrl-panel .ctrl-bar .home {
+  padding-block: 0.5rem;
+}
+.ctrl-panel .ctrl-bar .home .page-list {
+  flex-direction: column-reverse;
+  justify-content: center;
+  row-gap: 5px;
+  position: fixed;
+  height: 300px;
+  bottom: 70px;
+  left: 10px;
+  translate: -150% 0;
+  z-index: -1;
+  transition: var(--main-transition);
+}
+.ctrl-panel .ctrl-bar .home .page-list li {
+  transition: var(--main-transition) 0.16s ease-out;
+}
+:where(.ctrl-panel .ctrl-bar .home .page-list li a) {
+  width: 160px;
+  padding-block: 0.4rem;
+  color: #fff;
+  background-color: var(--alt-clr);
+  border-radius: 8px;
+  transition: var(--main-transition);
+}
+.ctrl-panel .ctrl-bar .home .page-list li a .symbol {
+  padding-inline: 0.5rem;
+}
+.ctrl-panel .ctrl-bar .home .page-list li a .link {
+  font-size: 1.15rem;
+}
+.ctrl-panel .ctrl-bar .home:hover .page-list {
+  translate: 0 0;
+}
+
+:where(.ctrl-panel .ctrl-bar .home:hover .page-list li:nth-of-type(2)) {
+  transform: translateX(var(--tr-x));
+}
+:where(.ctrl-panel .ctrl-bar .home:hover .page-list li:nth-of-type(3)) {
+  transform: translateX(calc(var(--tr-x) * 2));
+}
+:where(.ctrl-panel .ctrl-bar .home:hover .page-list li:nth-of-type(4)) {
+  transform: translateX(calc(var(--tr-x) * 3));
+}
+:where(.ctrl-panel .ctrl-bar .home:hover .page-list li:nth-of-type(5)) {
+  transform: translateX(calc(var(--tr-x) * 3));
+}
+:where(.ctrl-panel .ctrl-bar .home:hover .page-list li:nth-of-type(6)) {
+  transform: translateX(calc(var(--tr-x) * 2));
+}
+:where(.ctrl-panel .ctrl-bar .home:hover .page-list li:nth-of-type(7)) {
+  transform: translateX(var(--tr-x));
+}
+.ctrl-panel .ctrl-bar .home .page-list li a:where(:hover) {
+  padding-left: 8px;
+}
+
+/* * Content-Page Section * */
+.content-page {
+  width: 100%;
+  height: 100vh;
+}
+
+/* ! Tablet Viewport */
+@media (min-width: 424px) {
+  .ctrl-panel {
+    left: 0;
+    top: 0;
+    height: 100vh;
+    width: 60px;
+    box-shadow: 5px 0 9px 2px rgb(0 0 0 / 0.1);
+    grid-template-rows: auto 1fr;
+  }
+  .ctrl-panel .logo {
+    display: block;
+  }
+  .ctrl-panel .ctrl-bar .home .page-list {
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 14px;
+    position: static;
+    height: 300px;
+    bottom: 65px;
+    left: 10px;
+    translate: 0 0;
+    /* transition: var(--main-transition); */
+  }
+  .ctrl-panel .ctrl-bar .home .page-list li {
+    translate: 0 0;
+  }
+  .ctrl-panel .ctrl-bar .home:hover .page-list {
+    translate: 0 0;
+  }
+  .ctrl-panel .ctrl-bar .home:hover .page-list li {
+    transform: translateX(0);
+  }
+  .ctrl-panel .ctrl-bar .home .page-list li a:where(:hover) {
+    padding-left: 0;
+  }
+  .ctrl-panel .ctrl-bar .home .page-list li a {
+    width: fit-content;
+  }
+  .ctrl-panel .ctrl-bar .home .page-list li a .link {
+    display: none;
+  }
+
+  .ctrl-panel .ctrl-bar .home .menu,
+  .ctrl-panel .ctrl-bar .search,
+  .ctrl-panel .ctrl-bar .user,
+  .ctrl-panel .ctrl-bar .notification {
+    display: none;
+  }
+
+  /* * Page-content * */
+  .content-page {
+    position: relative;
+    left: 60px;
+    width: calc(100% - 60px);
+  }
+}
+/* ! Laptop and up */
+@media (min-width: 767px) {
+  .ctrl-panel {
+    width: 220px;
+  }
+  .ctrl-panel .logo h2 {
+    font-size: 2.24rem;
+  }
+  .ctrl-panel .ctrl-bar .home .page-list li {
+    width: 180px;
+  }
+  .ctrl-panel .ctrl-bar .home .page-list li a {
+    width: 100%;
+  }
+  .ctrl-panel .ctrl-bar .home .page-list li a .link {
+    display: inline-block;
+  }
+  /* * .content-page * */
+  .content-page {
+    left: 220px;
+    width: calc(100% - 220px);
+  }
+}
+/* 
+  Start Page Stylig
+  *Dashboard
+*/
+/* header */
+.dashboard .header {
+  justify-content: space-between;
+  height: 50px;
+}
+.dashboard .header .search-bar {
+  background-color: #fff;
+  border-radius: 6px;
+  height: 2rem;
+  justify-content: space-between;
+}
+.dashboard .header .search-bar i.search {
+  color: var(--alt-clr);
+}
+.dashboard .header .search-bar input {
+  caret-color: var(--main-clr);
+  color: var(--main-clr);
+  outline: 0;
+  border: 0;
+  border-radius: 6px;
+  height: 100%;
+  font-size: 1rem;
+  padding-inline-end: 0.2rem;
+  width: 30px;
+  transition: var(--main-transition) paddine-inline-end;
+}
+.dashboard .header .search-bar input::placeholder {
+  visibility: hidden;
+}
+@media (min-width: 424px) {
+  .dashboard .header .search-bar input {
+    width: 150px;
+  }
+  .dashboard .header .search-bar input::placeholder {
+    visibility: visible;
+  }
+}
+.dashboard .header .search-bar input:focus,
+.dashboard .header .search-bar input:not(:placeholder-shown) {
+}
+.dashboard .header .user-info {
+  column-gap: 10px;
+}
+.dashboard .header .user-info i.bell {
+  position: relative;
+  align-self: end;
+}
+.dashboard .header .user-info i.bell::after {
+  content: "";
+  position: absolute;
+  height: 8px;
+  width: 8px;
+  background-color: var(--accent-clr);
+  border-radius: 50%;
+  top: 0;
+  right: 2px;
+}
+.dashboard .header .user-info i.user {
+}
