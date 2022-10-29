@@ -38,21 +38,6 @@ a {
   cursor: pointer;
 }
 
-.row {
-  display: flex;
-  align-items: center;
-}
-.col {
-  display: flex;
-  flex-direction: column;
-}
-
-.btn {
-  outline: 0;
-  border: 0;
-  color: #fff;
-}
-
 /*     Breakpoints RWD*/
 /*          --wide-m: 549px;
             --wide-l: 550px;
